@@ -11,14 +11,33 @@
 
 <script>
 
-    var computerSelection = computerPlay()
-
-
     // This function chooses rock, paper, or scissor at random.
     function computerPlay() {
-        var computerSelection = [`rock`, `paper`, `scissors`];
-        
-        return computerSelection[Math.floor(Math.random() * 3)]
+        let computerSelection = [`rock`, `paper`, `scissors`];
+        return computerSelection[Math.floor(Math.random() * 3)];
     }
+
+
+    // This function prompts the user to pick Rock Paper or Scissors and checks if the result is right..
+    function userPlay() {
+        let playerSelection = prompt(`Choose: rock, paper, or scissors`).toLowerCase();
+        if (playerSelection === (`rock` || `paper` || `scissors`)) {
+            return playerSelection;
+        } else {
+            alert(`Try again`)
+            userPlay()
+        }
+    }
+
+
+    // This function compares the results of both player and computer choices and checks for wins or ties.
+    function playRound(player, computer) {
+        if
+
+
+    }
+
+
+
 
 </script>
