@@ -18,26 +18,50 @@
     }
 
 
-    // This function prompts the user to pick Rock Paper or Scissors and checks if the result is right..
+    // This function prompts the user to pick Rock Paper or Scissors and checks if the result is right. If not, it prompts the user to input again.
     function userPlay() {
         let playerSelection = prompt(`Choose: rock, paper, or scissors`).toLowerCase();
-        if (playerSelection === (`rock` || `paper` || `scissors`)) {
+        console.log(playerSelection);
+        if ([`rock`, `paper`, `scissors`].includes(playerSelection)) {
             return playerSelection;
         } else {
-            alert(`Try again`)
-            userPlay()
+            alert(`Try again`);
+            userPlay();
         }
     }
 
 
     // This function compares the results of both player and computer choices and checks for wins or ties.
     function playRound(player, computer) {
-        if
-
-
+        let result;
+        if (player === computer) {
+            result = "tie"
+            alert(`It's a tie! try again!`)
+            return result;
+        } else if ((player === 'rock') && (computer === 'scissors')) {
+            result = `win`;
+            alert(`Rock beats scissors! You win!`)
+        } else if ((player === 'rock') && (computer === `paper`)) {
+            result = `lose`;
+            alert(`Paper eats rock! You lose!`)
+        } else if ((player === 'paper') && (computer === `rock`)) {
+            result = `win`;
+            alert(`Paper eats rock! You win!`)
+        } else if ((player === 'paper') && (computer === `scissors`)) {
+            result = `lose`;
+            alert(`Scissors cut paper! You lose!`)
+        } else if ((player === 'scissors') && (computer === `rock`)) {
+            alert(`Rock beats scissors! You lose!`)
+        } else if ((player === 'scissors') && (computer === `paper`)) {
+            result = `win`;
+            alert(`Scissors cut paper! You win`)
+        }
+        return result;
     }
 
-
-
+    // This function plays the game until one side wins 3 times.
+    function game() {
+        
+    }
 
 </script>
