@@ -6,30 +6,38 @@
 </head>
 
 <body>
-
+    <header>
+        <h1>Rock-Paper-Scissers Game</h1>
+        <p>At this point, this game is quite barebones. Press F12 to enter dev mode and navigate to your console to see the play by play results.</p>
+        <p>Refresh the page if you want to start over.</p>
+    </header>
 </body>
 
 <script>
-
-    // This function chooses rock, paper, or scissor at random.
-    function computerPlay() {
-        let computerSelection = [`rock`, `paper`, `scissors`];
-        return computerSelection[Math.floor(Math.random() * 3)];
-    }
-
+    let wins = 0;
+    let losses = 0;
+    let ties = 0;
+    let rounds = 0;
+    let selection = [`rock`, `paper`, `scissors`];
 
     // This function prompts the user to pick Rock Paper or Scissors and checks if the result is right. If not, it prompts the user to input again.
     function userPlay() {
         let playerSelection = prompt(`Choose: rock, paper, or scissors`).toLowerCase();
-        console.log(`Player chooses ` + playerSelection);
-        if ([`rock`, `paper`, `scissors`].includes(playerSelection)) {
+        console.log(`Player chooses: ` + playerSelection);
+        if (selection.includes(playerSelection)) {
             return playerSelection;
         } else {
-            alert(`Try again`);
+            alert(`Invali`);
             userPlay();
         }
     }
 
+    // This function chooses rock, paper, or scissor at random.
+    function computerPlay() {
+        let computerSelection = selection[Math.floor(Math.random() * 3)]
+        console.log(`Computer chooses: ` + computerSelection);
+        return computerSelection;
+    }
 
     // This function compares the results of both player and computer choices and checks for wins or ties.
     function playRound(player, computer) {
@@ -60,35 +68,39 @@
         return result;
     }
 
+
+    // This function increases the round counter, and then shows the tracked rounds, wins, losses, and ties.
+    function trackResults() {
+        rounds += 1;
+        console.log(`Round: ` + rounds);
+        console.log(`Wins: ` + wins);
+        console.log(`Losses: ` + losses);
+        console.log(`Ties: ` + ties);
+    }
+
     // This function plays the game until one side wins 3 times.
     function game() {
-        let wins = 0;
-        let losses = 0;
-        let ties = 0;
 
         for (i=0; i<3;) {
             switch (playRound(userPlay(), computerPlay())) {
                 case "win":
+                console.log(`Player win.`)
                 wins += 1;
                 if (wins>losses) {i=wins};
-                console.log(`wins: ` + wins);
-                console.log(`losses: ` + losses);
-                console.log(`ties: ` + ties);
+                trackResults()
                 break;
 
                 case "lose":
+                console.log(`Computer wins.`)
                 losses += 1;
                 if (losses>wins) {i=losses};
-                console.log(`wins: ` + wins);
-                console.log(`losses: ` + losses);
-                console.log(`ties: ` + ties);
+                trackResults()
                 break;
 
                 case "tie":
-                losses += 1;
-                console.log(`wins: ` + wins);
-                console.log(`losses: ` + losses);
-                console.log(`ties: ` + ties);
+                console.log(`It's a tie.`)
+                ties += 1;
+                trackResults()
                 break;
                 }
             }
