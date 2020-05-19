@@ -20,11 +20,13 @@
 
     reportCounters()
 
-    // This function prompts the user to pick Rock Paper or Scissors
-    // and checks if the result is right.
-    // If not, it prompts the user to input again.
-    function userPlay() {
-        console.log(`Player chooses: ` + playerSelection)
+    // This function resets all variables and updates the counters to match.
+    function reset() {
+        wins = 0;
+        losses = 0;
+        ties = 0;
+        rounds = 0;
+        reportCounters()
     }
 
     // This function chooses rock, paper, or scissor at random.
