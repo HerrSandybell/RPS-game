@@ -82,6 +82,7 @@
         }
 
         // this section needs to be fixed.
+        ++rounds;
         reportCounters()
         console.log(result);
         document.getElementById("result-text").innerHTML = resultAnnouncement;
