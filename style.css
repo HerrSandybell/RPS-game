@@ -1,0 +1,74 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    padding: 5em;
+}
+
+p {
+    text-align: center;
+    border: 1px solid black;
+}
+
+.counter-container {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.counter {
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#challenge-pane {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    width: 100%;
+}
+
+#player-pane {
+    border: 1px solid black;
+    padding: 1em;
+}
+
+#result-pane {
+    border: 1px solid black;
+    width: 50%;
+    height: 25%;
+    padding: 3em;
+    text-align: center;
+}
+
+#result-text {
+    font-size: 20px;
+}
+
+#computer-pane {
+    border: 1px solid black;
+    padding: 1em;
+}
+
+#result-counters {
+    display: flex;
+    border: 1px solid black;
+}
+
+
+#RPS-choices {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.RPS-button {
+    margin: 10px;
+}
