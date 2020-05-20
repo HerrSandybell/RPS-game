@@ -2,13 +2,18 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid black;
+/*    border: 1px solid black; */
     padding: 5em;
 }
 
 p {
     text-align: center;
-    border: 1px solid black;
+/*    border: 1px solid black; */
+}
+
+img {
+    height: 125px;
+    width: 125px;
 }
 
 .counter-container {
@@ -16,6 +21,11 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 3em;
+    height: 4em;
+    padding: 0.5em;
+    margin: 0.5em;
+    border-radius: 0.5em;
 }
 
 .counter {
@@ -30,6 +40,8 @@ p {
     justify-content: space-between;
     border: 1px solid black;
     width: 100%;
+    height: 25%;
+    padding: 1em;
 }
 
 .challenger-choice{
@@ -53,7 +65,7 @@ p {
 
 #result-counters {
     display: flex;
-    border: 1px solid black;
+    /*border: 1px solid black; */
 }
 
 #game-buttons {
@@ -65,6 +77,16 @@ p {
     border: 1px solid black;
 }
 
+input {
+    border-radius: 100%;
+}
+
 .RPS-button {
     margin: 10px;
+    width: 125px;
+    border-radius: 100%;
+}
+
+.RPS-button:hover {
+    box-shadow: 0px 0px 10px black;
 }

@@ -8,7 +8,9 @@ let result;
 let resultAnnouncement;
 
 const gameButtons = document.getElementById("game-buttons");
-const resultText = document.getElementById("result-text");    
+const resultText = document.getElementById("result-text");
+const playerChoiceImage = document.getElementById("player-choice-image");
+const computerChoiceImage = document.getElementById("computer-choice-image");    
 const selection = [`rock`, `paper`, `scissors`];
 
 reportCounters()
@@ -35,49 +37,54 @@ function computerPlay() {
 
 // This function compares the results of both player and computer choices
 // and checks for wins or ties.
-function playRound(player, computer) {
+function playRound(playerSelection) {
     
-    console.log(`Player chooses: ` + player)
+    let computerSelection = computerPlay()
 
     ++rounds;
 
-    if (player === computer) {
+    playerChoiceImage.innerHTML = `<img src="/images/${playerSelection}.png" alt="${playerSelection} Symbol"></img>`;
+    computerChoiceImage.innerHTML = `<img src="/images/${computerSelection}.png" alt="${computerSelection} Symbol"></img>`;
+
+    console.log(`Player chooses: ` + playerSelection);
+
+    if (playerSelection === computerSelection) {
 
             result = `tie`;
             resultAnnouncement = `It's a tie! try again!`;
             ++ties;
 
-        } else if ((player === `rock`) && (computer === `scissors`)) {
+        } else if ((playerSelection === `rock`) && (computerSelection === `scissors`)) {
 
             result = `win`;
             resultAnnouncement = `Rock beats scissors! You win!`;
             ++wins;
 
-        } else if ((player === `rock`) && (computer === `paper`)) {
+        } else if ((playerSelection === `rock`) && (computerSelection === `paper`)) {
 
             result = `lose`;
             resultAnnouncement = `Paper eats rock! You lose!`;
             ++losses;
 
-        } else if ((player === `paper`) && (computer === `rock`)) {
+        } else if ((playerSelection === `paper`) && (computerSelection === `rock`)) {
 
             result = `win`;
             resultAnnouncement = `Paper eats rock! You win!`;
             ++wins;
 
-        } else if ((player === `paper`) && (computer === `scissors`)) {
+        } else if ((playerSelection === `paper`) && (computerSelection === `scissors`)) {
 
             result = `lose`;
             resultAnnouncement = `Scissors cut paper! You lose!`;
             ++losses;
 
-        } else if ((player === `scissors`) && (computer === `rock`)) {
+        } else if ((playerSelection === `scissors`) && (computerSelection === `rock`)) {
 
             result = `lose`;
             resultAnnouncement = `Rock beats scissors! You lose!`;
             ++losses;
 
-        } else if ((player === `scissors`) && (computer === `paper`)) {
+        } else if ((playerSelection === `scissors`) && (computerSelection === `paper`)) {
 
             result = `win`;
             resultAnnouncement = `Scissors cut paper! You win`;
@@ -117,13 +124,15 @@ function resetGame() {
     rounds = 0;
     reportCounters()
     resultText.innerHTML = `To start the game, click one of the buttons below.`
+    playerChoiceImage.innerHTML = `<img src="" alt=""></img>`
+    computerChoiceImage.innerHTML = `<img src="" alt=""></img>`
     gameButtons.innerHTML =
     
     `
-    <input type="button" class="RPS-button" onclick="playRound('rock', computerPlay())" value='rock'>
+    <input id="rock-button" class="RPS-button" type="image" src="/images/rock.png" onclick="playRound('rock')">
     
-    <input type="button" class="RPS-button" onclick="playRound('paper', computerPlay())" value='paper'>
+    <input id="paper-button" class="RPS-button" type="image" src="/images/paper.png" onclick="playRound('paper')">
     
-    <input type="button" class="RPS-button" onclick="playRound('scissors', computerPlay())" value='scissors'>
+    <input id="scissor-button" class="RPS-button" type="image" src="/images/scissors.png" onclick="playRound('scissors')">
     `;
 }
