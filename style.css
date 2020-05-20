@@ -12,8 +12,8 @@ p {
 }
 
 img {
-    height: 125px;
-    width: 125px;
+    height: auto;
+    width: 100%;
 }
 
 .counter-container {
@@ -77,13 +77,15 @@ img {
     border: 1px solid black;
 }
 
-input {
-    border-radius: 100%;
+.button-container {
+    width: 20vmin;
+    margin: 2vw;
 }
 
 .RPS-button {
     margin: 10px;
-    width: 125px;
+    width: 100%;
+    height: auto;
     border-radius: 100%;
 }
 
