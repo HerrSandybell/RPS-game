@@ -44,8 +44,8 @@ function playRound(playerSelection) {
     ++rounds;
 
     playerChoiceImage.innerHTML = `<p class="choice">Your choice!</p>
-    <div id="player-choice-image"><img src="/images/${playerSelection}.png" alt="${playerSelection.charAt(0).toUpperCase()} Symbol"></img>`;
-    computerChoiceImage.innerHTML = `<p class="choice">Computer's choice!</p><img src="/images/${computerSelection}.png" alt="${computerSelection} Symbol"></img>`;
+    <div id="player-choice-image"><img src="images/${playerSelection}.png" alt="${playerSelection.charAt(0).toUpperCase()} Symbol"></img>`;
+    computerChoiceImage.innerHTML = `<p class="choice">Computer's choice!</p><img src="images/${computerSelection}.png" alt="${computerSelection} Symbol"></img>`;
 
     console.log(`Player chooses: ` + playerSelection);
 
@@ -131,15 +131,15 @@ function resetGame() {
     
     `
     <div class="button-container">
-        <input id="rock-button" class="RPS-button" type="image" src="/images/rock.png" onclick="playRound('rock')">
+        <input id="rock-button" class="RPS-button" type="image" src="images/rock.png" onclick="playRound('rock')">
     </div>
     
     <div class="button-container">
-        <input id="paper-button" class="RPS-button" type="image" src="/images/paper.png" onclick="playRound('paper')">
+        <input id="paper-button" class="RPS-button" type="image" src="images/paper.png" onclick="playRound('paper')">
     </div>
     
     <div class="button-container">
-        <input id="scissor-button" class="RPS-button" type="image" src="/images/scissors.png" onclick="playRound('scissors')">
+        <input id="scissor-button" class="RPS-button" type="image" src="images/scissors.png" onclick="playRound('scissors')">
     </div>
     `;
 }
