@@ -43,8 +43,9 @@ function playRound(playerSelection) {
 
     ++rounds;
 
-    playerChoiceImage.innerHTML = `<img src="/images/${playerSelection}.png" alt="${playerSelection.charAt(0).toUpperCase()} Symbol"></img>`;
-    computerChoiceImage.innerHTML = `<img src="/images/${computerSelection}.png" alt="${computerSelection.charAt(0).toUpperCase()} Symbol"></img>`;
+    playerChoiceImage.innerHTML = `<p class="choice">Your choice!</p>
+    <div id="player-choice-image"><img src="/images/${playerSelection}.png" alt="${playerSelection.charAt(0).toUpperCase()} Symbol"></img>`;
+    computerChoiceImage.innerHTML = `<p class="choice">Computer's choice!</p><img src="/images/${computerSelection}.png" alt="${computerSelection} Symbol"></img>`;
 
     console.log(`Player chooses: ` + playerSelection);
 
