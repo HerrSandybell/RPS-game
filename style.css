@@ -52,6 +52,7 @@ p {
 img {
     height: auto;
     max-width: 100%;
+    margin: 5px;
 }
 
 .counter-container {
@@ -76,7 +77,7 @@ img {
 /* Gameplay pane + choice symbols */
 #game-display {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 100%;
     height: auto;
@@ -88,6 +89,7 @@ img {
         flex-direction: column;
         align-items: center;
         width: 15vmin;
+        min-width: 100px;
         height: auto;
     }
 
@@ -97,7 +99,9 @@ img {
 
     #result-pane {
         border: 1px solid black;
-        width: 60vmin;
+        border-radius: 1rem;
+        width: 60vw;
+        min-width: 30vw;
         height: auto;
         padding: 3rem;
         margin: 3rem;
@@ -107,7 +111,7 @@ img {
     }
 
     #result-text {
-        font-size: 32px;
+        font-size: 2rem;
     }
 
 
