@@ -28,7 +28,7 @@ console.log(`Losses: ` + losses);
 console.log(`Ties: ` + ties);
 }
 
-// This function chooses rock, paper, or scissor at random.
+// This function chooses rock, paper, or scissor at random for the OPPONENT.
 function computerPlay() {
     let computerSelection = selection[Math.floor(Math.random() * 3)]
     console.log(`Computer chooses: ` + computerSelection);
@@ -56,37 +56,26 @@ function playRound(playerSelection) {
             ++ties;
 
         } else if ((playerSelection === `rock`) && (computerSelection === `scissors`)) {
-
             result = `win`;
             resultAnnouncement = `Rock beats scissors! You win!`;
             ++wins;
-
         } else if ((playerSelection === `rock`) && (computerSelection === `paper`)) {
-
             result = `lose`;
             resultAnnouncement = `Paper eats rock! You lose!`;
             ++losses;
-
         } else if ((playerSelection === `paper`) && (computerSelection === `rock`)) {
-
             result = `win`;
             resultAnnouncement = `Paper eats rock! You win!`;
             ++wins;
-
         } else if ((playerSelection === `paper`) && (computerSelection === `scissors`)) {
-
             result = `lose`;
             resultAnnouncement = `Scissors cut paper! You lose!`;
             ++losses;
-
         } else if ((playerSelection === `scissors`) && (computerSelection === `rock`)) {
-
             result = `lose`;
             resultAnnouncement = `Rock beats scissors! You lose!`;
             ++losses;
-
         } else if ((playerSelection === `scissors`) && (computerSelection === `paper`)) {
-
             result = `win`;
             resultAnnouncement = `Scissors cut paper! You win`;
             ++wins;
@@ -127,19 +116,19 @@ function resetGame() {
     resultText.innerHTML = `To start the game, click one of the buttons below.`
     playerChoiceImage.innerHTML = `<img src="" alt=""></img>`
     computerChoiceImage.innerHTML = `<img src="" alt=""></img>`
-    gameButtons.innerHTML =
+    // gameButtons.innerHTML =
     
-    `
-    <div class="button-container">
-        <input id="rock-button" class="RPS-button" type="image" src="./images/rock.png" onclick="playRound('rock')">
-    </div>
+    // `
+    // <div class="button-container">
+    //     <input id="rock-button" class="RPS-button" type="image" src="./images/rock.png" onclick="playRound('rock')">
+    // </div>
     
-    <div class="button-container">
-        <input id="paper-button" class="RPS-button" type="image" src="./images/paper.png" onclick="playRound('paper')">
-    </div>
+    // <div class="button-container">
+    //     <input id="paper-button" class="RPS-button" type="image" src="./images/paper.png" onclick="playRound('paper')">
+    // </div>
     
-    <div class="button-container">
-        <input id="scissor-button" class="RPS-button" type="image" src="./images/scissors.png" onclick="playRound('scissors')">
-    </div>
-    `;
+    // <div class="button-container">
+    //     <input id="scissor-button" class="RPS-button" type="image" src="./images/scissors.png" onclick="playRound('scissors')">
+    // </div>
+    // `;
 }
