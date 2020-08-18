@@ -161,11 +161,17 @@ img {
   img {
     width: 150px;
   }
+  .result-pane{
+    height: 150px;
+  }
 } 
 
 @media (max-width: 500px) {
   img {
     width: 100px;
+  }
+  .result-pane{
+    height: 100px;
   }
 }
 

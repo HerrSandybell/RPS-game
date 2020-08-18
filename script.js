@@ -1,4 +1,3 @@
-
 let wins = 0;
 let losses = 0;
 let ties = 0;
@@ -49,35 +48,33 @@ function playRound(playerSelection) {
   console.log(`Player chooses: ` + playerSelection);
 
   if (playerSelection === computerSelection) {
-
-          result = `tie`;
-          resultAnnouncement = `It's a tie! try again!`;
-          ++ties;
-
-    } else if ((playerSelection === `rock`) && (computerSelection === `scissors`)) {
-      result = `win`;
-      resultAnnouncement = `Rock beats scissors! You win!`;
-      ++wins;
-    } else if ((playerSelection === `rock`) && (computerSelection === `paper`)) {
-      result = `lose`;
-      resultAnnouncement = `Paper eats rock! You lose!`;
-      ++losses;
-    } else if ((playerSelection === `paper`) && (computerSelection === `rock`)) {
-      result = `win`;
-      resultAnnouncement = `Paper eats rock! You win!`;
-      ++wins;
-    } else if ((playerSelection === `paper`) && (computerSelection === `scissors`)) {
-      result = `lose`;
-      resultAnnouncement = `Scissors cut paper! You lose!`;
-      ++losses;
-    } else if ((playerSelection === `scissors`) && (computerSelection === `rock`)) {
-      result = `lose`;
-      resultAnnouncement = `Rock beats scissors! You lose!`;
-      ++losses;
-    } else if ((playerSelection === `scissors`) && (computerSelection === `paper`)) {
-      result = `win`;
-      resultAnnouncement = `Scissors cut paper! You win`;
-      ++wins;
+    result = `tie`;
+    resultAnnouncement = `It's a tie! try again!`;
+    ++ties;
+  } else if ((playerSelection === `rock`) && (computerSelection === `scissors`)) {
+    result = `win`;
+    resultAnnouncement = `Rock beats scissors! You win!`;
+    ++wins;
+  } else if ((playerSelection === `rock`) && (computerSelection === `paper`)) {
+    result = `lose`;
+    resultAnnouncement = `Paper eats rock! You lose!`;
+    ++losses;
+  } else if ((playerSelection === `paper`) && (computerSelection === `rock`)) {
+    result = `win`;
+    resultAnnouncement = `Paper eats rock! You win!`;
+    ++wins;
+  } else if ((playerSelection === `paper`) && (computerSelection === `scissors`)) {
+    result = `lose`;
+    resultAnnouncement = `Scissors cut paper! You lose!`;
+    ++losses;
+  } else if ((playerSelection === `scissors`) && (computerSelection === `rock`)) {
+    result = `lose`;
+    resultAnnouncement = `Rock beats scissors! You lose!`;
+    ++losses;
+  } else if ((playerSelection === `scissors`) && (computerSelection === `paper`)) {
+    result = `win`;
+    resultAnnouncement = `Scissors cut paper! You win`;
+    ++wins;
   }
 
   resultText.innerHTML = resultAnnouncement + checkEnd()
