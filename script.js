@@ -128,21 +128,21 @@ function createGameButtons() {
   const rockButton = document.createElement('img');
   rockButton.src = "./images/rock.png";
   rockButton.id = "rock-button";
-  rockButton.classList = "rps-button";
+  rockButton.classList.add("rps-button");
   rockButton.alt = "Choose Rock Button";
   rockButton.addEventListener("click", () => playRound("rock"));
 
   const paperButton = document.createElement('img');
   paperButton.src = "./images/paper.png";
   paperButton.id = "paper-button";
-  paperButton.classList = "rps-button";
+  paperButton.classList.add("rps-button");
   paperButton.alt = "Choose Paper Button";
   paperButton.addEventListener("click", () => playRound("paper"));
 
   const scissorsButton = document.createElement('img');
   scissorsButton.src = "./images/scissors.png";
   scissorsButton.id = "scissors-button";
-  scissorsButton.classList = "rps-button";
+  scissorsButton.classList.add("rps-button");
   scissorsButton.alt = "Choose Scissors Button";
   scissorsButton.addEventListener("click", () => playRound("scissors"));
 
@@ -152,7 +152,7 @@ function createGameButtons() {
 
 function createResetButton() {
   const resetButton = document.createElement('button');
-  resetButton.classList = "button";
+  resetButton.classList.add("button");
   resetButton.textContent = "RESET GAME!";
   resetButton.addEventListener("click", () => resetGame());
 
