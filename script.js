@@ -1,51 +1,58 @@
+// Declare variables that track the game scores.
+// They must be global since more than one function uses them.
 let wins = 0;
 let losses = 0;
 let ties = 0;
 let rounds = 0;
 
-let result;
-let resultAnnouncement;
-
+const resultText  = document.querySelector(".result-text");
 const gameButtons = document.querySelector(".game-buttons");
-const resultText = document.querySelector(".result-text");
-const playerChoiceImage = document.getElementById("player-choice-image");
-const computerChoiceImage = document.getElementById("computer-choice-image");    
-const selection = [`rock`, `paper`, `scissors`];
 
-reportCounters()
-resetGame()
+const playerImageContainer   = document.getElementById("player-choice-image");
+const computerImageContainer = document.getElementById("computer-choice-image");
+
+// set up the game board
+reportCounters();
+resetGame();
 
 // This function assign the variables to counter elements in HTML.
 function reportCounters() {
-  document.getElementById(`rounds`).innerHTML = rounds;
-  document.getElementById(`wins`).innerHTML = wins;
-  document.getElementById(`losses`).innerHTML = losses;
-  document.getElementById(`ties`).innerHTML = ties;
-  console.log(`Round: ` + rounds);
-  console.log(`Wins: ` + wins);
-  console.log(`Losses: ` + losses);
-  console.log(`Ties: ` + ties);
-}
+  document.getElementById(`rounds`).innerText = rounds;
+  document.getElementById(`wins`).innerText = wins;
+  document.getElementById(`losses`).innerText = losses;
+  document.getElementById(`ties`).innerText = ties;
+};
 
-// This function chooses rock, paper, or scissor at random for the OPPONENT.
-function computerPlay() {
-  let computerSelection = selection[Math.floor(Math.random() * 3)]
-  console.log(`Computer chooses: ` + computerSelection);
-  return computerSelection;
-}
+// This function resets all variables and text.
+function resetGame() {
+  wins = 0;
+  losses = 0;
+  ties = 0;
+  rounds = 0;
+  
+  resultText.innerText = `To start the game, click one of the buttons below.`
+
+  reportCounters()
+  clearImages()
+  createGameButtons();
+};
 
 // This function compares the results of both player and computer choices
 // and checks for wins or ties.
 function playRound(playerSelection) {
-  
-  let computerSelection = computerPlay()
+  let result;
+  let resultAnnouncement;
 
   ++rounds;
 
-  playerChoiceImage.innerHTML = `<img src="./images/${playerSelection}.png" alt="${playerSelection.charAt(0).toUpperCase()} Symbol">`;
-  computerChoiceImage.innerHTML = `<img src="./images/${computerSelection}.png" alt="${computerSelection} Symbol">`;
+  // display player selection in game panel
+  const playerChoiceImage = document.createElement('img');
+  playerChoiceImage.src = ` ./images/${playerSelection}.png`;
+  playerChoiceImage.alt = `${playerSelection.charAt(0).toUpperCase()} Symbol`;
+  playerImageContainer.replaceChildren(playerChoiceImage);
 
-  console.log(`Player chooses: ` + playerSelection);
+  // Computer plays a round
+  const computerSelection = computerPlay()
 
   if (playerSelection === computerSelection) {
     result = `tie`;
@@ -77,12 +84,25 @@ function playRound(playerSelection) {
     ++wins;
   }
 
-  resultText.innerHTML = resultAnnouncement + checkEnd()
+  resultText.innerText = resultAnnouncement + checkEnd();
 
-  console.log(result);
-  reportCounters()
+  reportCounters();
   return result;
-}
+};
+
+// This function chooses rock, paper, or scissor at random for the OPPONENT.
+function computerPlay() {
+  const selection = [`rock`, `paper`, `scissors`];
+  const computerSelection = selection[Math.floor(Math.random() * 3)];
+
+  // Display computer choice in the game panel
+  const computerChoiceImage = document.createElement('img');
+  computerChoiceImage.src = ` ./images/${computerSelection}.png`;
+  computerChoiceImage.alt = `${computerSelection.charAt(0).toUpperCase()} Symbol`;
+  document.getElementById("computer-choice-image").replaceChildren(computerChoiceImage);
+
+  return computerSelection;
+};
 
 // this function checks if any player got 3 wins, 
 // and then adds a congratulatory string and replaces the choices with a reset button.
@@ -91,34 +111,57 @@ function checkEnd() {
   
   if (wins === 3) {
     endAnnouncement = `\n` + ` You beat the computer! Winner winner chicken dinner!`;
-    gameButtons.innerHTML = `<button class="button" onclick="resetGame()">reset</button>`
+    createResetButton();
   } else if (losses === 3) {
     endAnnouncement = `\n` + ` The Computer wins! Get good!`;
-    gameButtons.innerHTML = `<button class="button" onclick="resetGame()">reset</button>`
+    createResetButton();
   } else {
     endAnnouncement = ``;
   }
   
   return endAnnouncement;
-}
+};
 
-// This function resets all variables and text.
-function resetGame() {
-  wins = 0;
-  losses = 0;
-  ties = 0;
-  rounds = 0;
-  reportCounters()
-  resultText.innerHTML = `To start the game, click one of the buttons below.`
-  playerChoiceImage.innerHTML = `<img src="" alt=""></img>`
-  computerChoiceImage.innerHTML = `<img src="" alt=""></img>`
-  gameButtons.innerHTML =
-  
-  `
-  <img class="rps-button" id="rock-button" src="./images/rock.png" onclick="playRound('rock')">
-    
-  <img class="rps-button" id="paper-button" src="./images/paper.png" onclick="playRound('paper')">
+// Create and append the gameplay buttons.
+function createGameButtons() {
+  // create game button elements
+  const rockButton = document.createElement('img');
+  rockButton.src = "./images/rock.png";
+  rockButton.id = "rock-button";
+  rockButton.classList = "rps-button";
+  rockButton.alt = "Choose Rock Button";
+  rockButton.addEventListener("click", () => playRound("rock"));
 
-  <img class="rps-button" id="scissor-button" src="./images/scissors.png" onclick="playRound('scissors')">
-  `;
-}
+  const paperButton = document.createElement('img');
+  paperButton.src = "./images/paper.png";
+  paperButton.id = "paper-button";
+  paperButton.classList = "rps-button";
+  paperButton.alt = "Choose Paper Button";
+  paperButton.addEventListener("click", () => playRound("paper"));
+
+  const scissorsButton = document.createElement('img');
+  scissorsButton.src = "./images/scissors.png";
+  scissorsButton.id = "scissors-button";
+  scissorsButton.classList = "rps-button";
+  scissorsButton.alt = "Choose Scissors Button";
+  scissorsButton.addEventListener("click", () => playRound("scissors"));
+
+  // remove all contents (reset button) with the game buttons.
+  gameButtons.replaceChildren(rockButton, paperButton, scissorsButton);
+};
+
+function createResetButton() {
+  const resetButton = document.createElement('button');
+  resetButton.classList = "button";
+  resetButton.textContent = "RESET GAME!";
+  resetButton.addEventListener("click", () => resetGame());
+
+  gameButtons.replaceChildren(resetButton);
+};
+
+// Clear the player and cpu choice images on page load or reset
+function clearImages() {
+  const img = document.createElement('img');
+  playerImageContainer.replaceChildren(img);
+  computerImageContainer.replaceChildren(img);
+};
