@@ -84,6 +84,7 @@ function playRound(playerSelection) {
     ++wins;
   }
 
+  // display round result announcement
   resultText.innerText = resultAnnouncement + checkEnd();
 
   reportCounters();
